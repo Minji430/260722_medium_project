@@ -1,0 +1,30 @@
+[server]
+enableStaticServing = true
+
+[[theme.fontFaces]]
+family = "Noto Sans KR"
+url = "app/static/NotoSansKR-ExtraLight.ttf"
+weight = "200"
+
+[[theme.fontFaces]]
+family = "Noto Sans KR"
+url = "app/static/NotoSansKR-Light.ttf"
+weight = "300"
+
+[[theme.fontFaces]]
+family = "Noto Sans KR"
+url = "app/static/NotoSansKR-Regular.ttf"
+weight = "400"
+
+[[theme.fontFaces]]
+family = "Noto Sans KR"
+url = "app/static/NotoSansKR-Medium.ttf"
+weight = "500"
+
+[[theme.fontFaces]]
+family = "Noto Sans KR"
+url = "app/static/NotoSansKR-ExtraBold.ttf"
+weight = "800"
+
+[theme]
+font = "Noto Sans KR, sans-serif"

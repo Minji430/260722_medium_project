@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>보고서 근거 만들기 — 설문 데이터를 그래프로</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="top-bar">
+  <div class="top-bar__inner">
+    <a href="index.html" class="top-bar__logo">보고서 근거 만들기<span>REPORT EVIDENCE MAKER</span></a>
+    <nav class="top-bar__nav">
+      <a href="#howto">사용 방법</a>
+      <a href="graph.html">시작하기 →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="section" style="padding-top:64px;">
+  <div class="wrap" style="display:flex; gap:56px; align-items:center; flex-wrap:wrap;">
+
+    <div style="flex:1 1 420px;">
+      <p class="eyebrow">국어 · 보고서 쓰기</p>
+      <h1 style="font-family:var(--font-display); font-size:2.6rem; line-height:1.35; margin:14px 0 20px; font-weight:400;">
+        우리 반 설문 결과,<br>
+        <span class="highlight">눈에 보이는 근거</span>로 바꿔보세요
+      </h1>
+      <p style="font-size:1.05rem; color:var(--ink-soft); max-width:480px;">
+        구글 설문으로 모은 조사 결과를 업로드하면, 보고서에 넣을 수 있는 그래프로 만들어 드려요.
+        세 가지 방식으로 그려본 뒤, 내 주장에 가장 잘 어울리는 그래프를 골라 다운로드하세요.
+      </p>
+      <div style="margin-top:32px; display:flex; gap:14px; flex-wrap:wrap;">
+        <a href="graph.html" class="btn btn-primary">설문 결과 올리러 가기</a>
+        <a href="#howto" class="btn btn-secondary">사용 방법 보기</a>
+      </div>
+    </div>
+
+    <!-- 시그니처: 원고지 스타일 장식 그리드 -->
+    <div style="flex:1 1 320px; display:flex; justify-content:center;" aria-hidden="true">
+      <div class="manuscript" id="manuscript"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= 무엇을 만들 수 있나요 ================= -->
+<section class="section" style="background:var(--paper-card); border-top:1px solid var(--line); border-bottom:1px solid var(--line);">
+  <div class="wrap">
+    <p class="eyebrow">지금 버전에서 다루는 것</p>
+    <h2 style="font-family:var(--font-display); font-weight:400; font-size:1.7rem; margin:10px 0 32px;">
+      구글 설문으로 만든 <span class="highlight">조사 결과</span>를 다룹니다
+    </h2>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(230px,1fr)); gap:20px;">
+      <div class="card">
+        <p class="eyebrow">STEP 1</p>
+        <h3 style="font-family:var(--font-display); font-weight:400; margin:8px 0;">구글폼 CSV 업로드</h3>
+        <p style="color:var(--ink-soft); font-size:0.95rem;">
+          학생이 만든 5문항 설문의 응답 결과(CSV)를 그대로 올려요. 따로 손볼 필요 없어요.
+        </p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">STEP 2 · 3</p>
+        <h3 style="font-family:var(--font-display); font-weight:400; margin:8px 0;">문항 선택 · 그래프 비교</h3>
+        <p style="color:var(--ink-soft); font-size:0.95rem;">
+          그래프로 만들 문항을 고르고, matplotlib · plotly · seaborn 세 가지 그래프를 나란히 비교해요.
+        </p>
+      </div>
+      <div class="card">
+        <p class="eyebrow">STEP 4</p>
+        <h3 style="font-family:var(--font-display); font-weight:400; margin:8px 0;">파일로 저장</h3>
+        <p style="color:var(--ink-soft); font-size:0.95rem;">
+          마음에 드는 그래프를 PNG·JPG로 내려받아 보고서에 바로 붙여넣어요.
+        </p>
+      </div>
+    </div>
+
+    <p style="margin-top:28px; font-size:0.9rem; color:var(--ink-soft);">
+      ※ 이번 버전은 <strong>설문(조사) 데이터</strong>를 대상으로 해요. 관찰·실험 기록을 다루는 기능은 다음 버전에서 다룰 예정이에요.
+    </p>
+  </div>
+</section>
+
+<!-- ================= 사용 방법 ================= -->
+<section class="section" id="howto">
+  <div class="wrap">
+    <p class="eyebrow">사용 방법</p>
+    <h2 style="font-family:var(--font-display); font-weight:400; font-size:1.7rem; margin:10px 0 40px;">
+      네 칸이면 충분해요
+    </h2>
+
+    <ol style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:0;">
+      <li class="ms-step">
+        <span class="ms-step__num">01</span>
+        <div>
+          <h3 style="font-family:var(--font-display); font-weight:400; margin:0 0 6px;">설문 결과 파일(CSV) 올리기</h3>
+          <p style="color:var(--ink-soft); margin:0;">구글폼 응답 시트에서 내려받은 CSV 파일을 그대로 끌어다 놓으세요.</p>
+        </div>
+      </li>
+      <li class="ms-step">
+        <span class="ms-step__num">02</span>
+        <div>
+          <h3 style="font-family:var(--font-display); font-weight:400; margin:0 0 6px;">그래프로 만들 문항 고르기</h3>
+          <p style="color:var(--ink-soft); margin:0;">보고서 주장을 뒷받침할 문항을 하나 골라요.</p>
+        </div>
+      </li>
+      <li class="ms-step">
+        <span class="ms-step__num">03</span>
+        <div>
+          <h3 style="font-family:var(--font-display); font-weight:400; margin:0 0 6px;">세 가지 그래프 비교하기</h3>
+          <p style="color:var(--ink-soft); margin:0;">matplotlib · plotly · seaborn 탭을 눌러가며 어떤 그래프가 더 잘 어울리는지 살펴보세요.</p>
+        </div>
+      </li>
+      <li class="ms-step">
+        <span class="ms-step__num">04</span>
+        <div>
+          <h3 style="font-family:var(--font-display); font-weight:400; margin:0 0 6px;">다운로드하기</h3>
+          <p style="color:var(--ink-soft); margin:0;">고른 그래프를 PNG나 JPG로 저장해 보고서에 붙여넣어요.</p>
+        </div>
+      </li>
+    </ol>
+
+    <div style="margin-top:40px;">
+      <a href="graph.html" class="btn btn-primary">지금 시작하기 →</a>
+    </div>
+  </div>
+</section>
+
+<footer style="border-top:1px solid var(--line); padding:28px 0; text-align:center; color:var(--ink-soft); font-size:0.85rem;">
+  보고서 근거 만들기 · 국어과 보고서 쓰기 수업 도구
+</footer>
+
+<style>
+/* 원고지 장식 그리드 */
+.manuscript {
+  display: grid;
+  grid-template-columns: repeat(6, 44px);
+  grid-auto-rows: 44px;
+  gap: 6px;
+}
+.manuscript div {
+  border: 1px solid var(--line);
+  background: var(--paper-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+.manuscript div.filled { border-color: var(--ink); }
+.manuscript div.mark { background: var(--accent-highlight); border-color: var(--ink); }
+
+/* 사용 방법 스텝 */
+.ms-step {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+.ms-step:first-child { border-top: 1px solid var(--line); }
+.ms-step__num {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 4px 9px;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
+</style>
+
+<script>
+// 원고지 장식 그리드에 "보고서 근거" 글자를 한 칸씩 채우기
+(function () {
+  const text = "보고서에는근거가필요해요".split("");
+  const grid = document.getElementById("manuscript");
+  const totalCells = 30; // 6 x 5
+  for (let i = 0; i < totalCells; i++) {
+    const cell = document.createElement("div");
+    if (i < text.length) {
+      cell.textContent = text[i];
+      cell.classList.add("filled");
+      if (text[i] === "근" || text[i] === "거") cell.classList.add("mark");
+    }
+    grid.appendChild(cell);
+  }
+})();
+</script>
+
+</body>
+</html>
